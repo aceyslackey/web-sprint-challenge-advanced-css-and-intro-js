@@ -218,7 +218,9 @@ console.log(artists[2])
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Fix this issue and console.log() to check your work. */
 
+artists[8].name = "Vincent Van Gogh"
 
+console.log(artists[8])
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -228,11 +230,11 @@ Use getArtistByIndex to do the following:
 
 Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(artists, index) {
-    return `$the artist at index ${artists[0].index} is ${artists[0].name}`
+function getArtistByIndex(array, index) {
+  return `$the artist at index ${array[index].id} is ${array[index].name}`
 }
-
-
+// console.log(getArtistByIndex(artists[0]))
+  
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use get20s to do the following: 
 1. Receive an array
@@ -245,8 +247,9 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 function get20s(array) {
   let newArray = []
    
-  for(let i = 0; i < array.length; i++){
-    let years = array[i].years.split()
+  for( let i = 0; i < array.length; i++) {
+    let years = array[i].years.split(" - ")
+    if (Number(years[0]) >= 1990 && Number(years[0]) <= 2000 && Number(years[1]) >= 1900 && Number(years[1]) <= 2000) return newArray.push(array[i].name)
   }
 }
 
@@ -265,7 +268,7 @@ function removeArtist(array, index) {
   array.splice(index, 1)
   return array.length
 }
-
+ 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -283,10 +286,17 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
-}
-
+function addArtist(array){
+  
+    "id: 20",
+    "name: Your Name Here", 
+    "years: Your Birth Year - current day",
+    "genre: Web Design", 
+    "nationality: Your Nationality Here",
+    "bio: Add 1-2 sentences (or use lorem ipsum)";
+    
+    
+ } 
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -296,8 +306,13 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(array) {
+  let newArray = []
+
+  for (let i = 0; i < array.length; i++){
+    if(array[i].paintings > 100) newArray.push(array[i].name)
+  }
+  return newArray
 }
 
 
